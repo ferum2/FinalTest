@@ -6,33 +6,9 @@
 using namespace std;
 
 
-class Student {
-private:
-    string name;
-    string id;
-    double balance;
-    int password;
-public:
-    Student(string name, string id, double balance = 0.0, int password = 0) {
-        this->name = name;
-        this->id = id;
-        this->balance = balance;
-        this ->password = password;
-    }
 
-    void show() {
-        cout << "Name: " << name << ", id: " << id << ", balance: " << balance << endl;
-    }
-    bool check(int pass) {
-        if (this->password == pass) {
-            return true;
-        }
-        return false;
-    }
 
-    // Геттер для id
-    const string& getId() const { return id; }
-};
+
 
 
 
@@ -40,7 +16,7 @@ public:
 
 int main() {
     initDB();
-     vector<Student> students;
+
     // loadStudentsFromDB(students);
     DisplayAdminsFromDB();
     initAdminDB();
@@ -68,8 +44,7 @@ int main() {
                         cout << "Invalid input" << endl;
                         goto start;
                     }
-                    Student s1(name, id, balance, password);
-                    students.push_back(s1);
+
                     addStudentToDB(name, id, balance);
                 } else {
                     cout << "Invalid input! Please try again." << endl;
